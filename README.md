@@ -9,6 +9,55 @@ Given a company URL, the agent looks for relevant public pages such as Home, Abo
 
 HERE I USED THE GITHUB URL= https://www.github.com/
 
+#ARCHITECTURE:
+┌───────────────┐
+│  User Input   │
+│ (Company URL) │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────────┐
+│     main.py       │
+│ Orchestration     │
+│ - Controls flow   │
+│ - Calls modules   │
+└───────┬───────────┘
+        │
+        ▼
+┌───────────────────┐
+│    scraper.py     │
+│ Web Scraping      │
+│ - Fetch HTML      │
+│ - Extract text    │
+│ - Find links      │
+└───────┬───────────┘
+        │
+        ▼
+┌───────────────────┐
+│  Page Classifier  │
+│ (inside main.py)  │
+│ - Home            │
+│ - About           │
+│ - Products        │
+│ - Policies        │
+└───────┬───────────┘
+        │
+        ▼
+┌───────────────────┐
+│  summarizer.py    │
+│ Text Processing   │
+│ - Clean text      │
+│ - Filter noise    │
+│ - Rule-based NLP  │
+└───────┬───────────┘
+        │
+        ▼
+┌───────────────────┐
+│   output.md       │
+│ Structured Result │
+│ (Markdown file)   │
+└───────────────────┘
+
 What the company does
 
 Products or services offered
